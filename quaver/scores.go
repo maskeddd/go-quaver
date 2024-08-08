@@ -78,7 +78,7 @@ func (s *ScoresService) ListMapGlobalWithMods(ctx context.Context, md5 string, m
 
 // ListMapGlobalWithRate returns the top 50 scores on a map with a given speed modifier.
 func (s *ScoresService) ListMapGlobalWithRate(ctx context.Context, md5 string, mods Modifier) ([]*ScoreWithUser, error) {
-	if !mods.HasRateModifiers() {
+	if !mods.hasRateModifiers() {
 		return nil, fmt.Errorf("quaver: modifiers must be rate modifiers")
 	}
 
@@ -139,7 +139,7 @@ func (s *ScoresService) ListUserMapBestWithMods(ctx context.Context, md5 string,
 
 // ListUserMapBestWithRate returns a user’s personal best score on a map with given rate modifiers.
 func (s *ScoresService) ListUserMapBestWithRate(ctx context.Context, md5 string, userID int, mods Modifier) (*ScoreWithUser, error) {
-	if !mods.HasRateModifiers() {
+	if !mods.hasRateModifiers() {
 		return nil, fmt.Errorf("quaver: modifiers must be rate modifiers")
 	}
 
