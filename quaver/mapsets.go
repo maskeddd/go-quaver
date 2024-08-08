@@ -121,8 +121,6 @@ func (s *MapsetsService) Search(ctx context.Context, opts *MapsetSearchOptions) 
 
 	url := fmt.Sprintf("mapset/search?%v", v.Encode())
 
-	println(url)
-
 	var r struct {
 		Mapsets []*Mapset `json:"mapsets"`
 	}
