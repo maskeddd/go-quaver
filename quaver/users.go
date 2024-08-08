@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/google/go-querystring/query"
+	"strconv"
 	"time"
 )
 
@@ -128,8 +129,8 @@ const (
 	scoreTypeFirstPlace scoreType = "firstplace"
 )
 
-func (s *UsersService) Get(ctx context.Context, id int) (*User, error) {
-	url := fmt.Sprintf("user/%v", id)
+func (s *UsersService) get(ctx context.Context, input string) (*User, error) {
+	url := fmt.Sprintf("user/%v", input)
 
 	var r struct {
 		User User `json:"user"`
@@ -141,6 +142,14 @@ func (s *UsersService) Get(ctx context.Context, id int) (*User, error) {
 	}
 
 	return &r.User, nil
+}
+
+func (s *UsersService) GetByID(ctx context.Context, id int) (*User, error) {
+	return s.get(ctx, strconv.Itoa(id))
+}
+
+func (s *UsersService) GetByName(ctx context.Context, username string) (*User, error) {
+	return s.get(ctx, username)
 }
 
 func (s *UsersService) ListAchievements(ctx context.Context, userID int) ([]*Achievement, error) {
