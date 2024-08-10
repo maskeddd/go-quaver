@@ -7,7 +7,7 @@ const (
 	GameMode7K
 )
 
-func (m GameMode) FromInt(i int) GameMode {
+func GameModeFromInt(i int) GameMode {
 	switch i {
 	case 1:
 		return GameMode4K
