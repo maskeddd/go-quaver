@@ -18,6 +18,10 @@ func GameModeFromInt(i int) GameMode {
 	}
 }
 
+func (m GameMode) String() string {
+	return [...]string{"4K", "7K"}[m-1]
+}
+
 type Grade string
 
 const (
