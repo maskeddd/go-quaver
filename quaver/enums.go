@@ -7,6 +7,17 @@ const (
 	GameMode7K
 )
 
+func (m GameMode) FromInt(i int) GameMode {
+	switch i {
+	case 1:
+		return GameMode4K
+	case 2:
+		return GameMode7K
+	default:
+		return GameMode4K
+	}
+}
+
 type Grade string
 
 const (
