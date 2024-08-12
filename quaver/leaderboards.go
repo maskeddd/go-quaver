@@ -20,7 +20,7 @@ func (s *LeaderboardsService) Global(ctx context.Context, mode GameMode, opts *L
 		return nil, err
 	}
 
-	url := fmt.Sprintf("leaderboard/global?mode=%v&%v", mode, v.Encode())
+	url := fmt.Sprintf("leaderboard/global?mode=%d&%v", mode, v.Encode())
 
 	var r Leaderboard
 
@@ -39,7 +39,7 @@ func (s *LeaderboardsService) Country(ctx context.Context, country string, mode 
 		return nil, err
 	}
 
-	url := fmt.Sprintf("leaderboard/country?country=%v&mode=%v&%v", country, mode, v.Encode())
+	url := fmt.Sprintf("leaderboard/country?country=%v&mode=%d&%v", country, mode, v.Encode())
 
 	var r Leaderboard
 

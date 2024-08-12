@@ -238,7 +238,7 @@ func (s *UsersService) listScores(ctx context.Context, userID int, mode GameMode
 		return nil, err
 	}
 
-	url := fmt.Sprintf("user/%v/scores/%v/%v?%v", userID, mode, scoreType, v.Encode())
+	url := fmt.Sprintf("user/%v/scores/%d/%v?%v", userID, mode, scoreType, v.Encode())
 
 	var r struct {
 		Scores []*ScoreWithMap `json:"scores"`
@@ -270,7 +270,7 @@ func (s *UsersService) ListGradeScores(ctx context.Context, userID int, mode Gam
 		return nil, err
 	}
 
-	url := fmt.Sprintf("user/%v/scores/%v/grades/%v?%v", userID, mode, grade, v.Encode())
+	url := fmt.Sprintf("user/%v/scores/%d/grades/%v?%v", userID, mode, grade, v.Encode())
 
 	var r struct {
 		Scores []*ScoreWithMap `json:"scores"`
@@ -285,7 +285,7 @@ func (s *UsersService) ListGradeScores(ctx context.Context, userID int, mode Gam
 }
 
 func (s *UsersService) ListRankStatistics(ctx context.Context, userID int, mode GameMode) ([]*Rank, error) {
-	url := fmt.Sprintf("user/%v/statistics/%v/rank", userID, mode)
+	url := fmt.Sprintf("user/%v/statistics/%d/rank", userID, mode)
 
 	var r struct {
 		Ranks []*Rank `json:"ranks"`
