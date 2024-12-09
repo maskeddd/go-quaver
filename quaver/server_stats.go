@@ -2,7 +2,6 @@ package quaver
 
 import (
 	"context"
-	"fmt"
 )
 
 type ServerStatsService service
@@ -18,7 +17,7 @@ type CountryStats map[string]string
 
 // Get returns the total user count, online users, score count, and mapsets on the server.
 func (s *ServerStatsService) Get(ctx context.Context) (*ServerStats, error) {
-	url := fmt.Sprintf("server/stats")
+	url := "server/stats"
 
 	var r ServerStats
 
@@ -32,7 +31,7 @@ func (s *ServerStatsService) Get(ctx context.Context) (*ServerStats, error) {
 
 // CountryPlayers returns the amount of players in each country.
 func (s *ServerStatsService) CountryPlayers(ctx context.Context) (*CountryStats, error) {
-	url := fmt.Sprintf("server/stats/country")
+	url := "server/stats/country"
 
 	var r struct {
 		Countries *CountryStats `json:"countries"`

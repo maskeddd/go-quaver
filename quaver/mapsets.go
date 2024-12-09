@@ -3,8 +3,9 @@ package quaver
 import (
 	"context"
 	"fmt"
-	"github.com/google/go-querystring/query"
 	"time"
+
+	"github.com/google/go-querystring/query"
 )
 
 type MapsetsService service
@@ -83,7 +84,7 @@ func (s *MapsetsService) Get(ctx context.Context, id int) (*MapsetWithUser, erro
 
 // ListRanked returns a list of the ids of all the ranked mapsets.
 func (s *MapsetsService) ListRanked(ctx context.Context) ([]*int, error) {
-	url := fmt.Sprintf("mapset/ranked")
+	url := "mapset/ranked"
 
 	var r struct {
 		RankedMapsets []*int `json:"ranked_mapsets"`
@@ -99,7 +100,7 @@ func (s *MapsetsService) ListRanked(ctx context.Context) ([]*int, error) {
 
 // ListOffsets returns a list of all mapsets that have online offsets.
 func (s *MapsetsService) ListOffsets(ctx context.Context) ([]*Offset, error) {
-	url := fmt.Sprintf("mapset/offsets")
+	url := "mapset/offsets"
 
 	var r struct {
 		OnlineOffsets []*Offset `json:"online_offsets"`
